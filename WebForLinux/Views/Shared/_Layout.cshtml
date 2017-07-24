@@ -1,0 +1,20 @@
+﻿@using WebForLinux.App_Start
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+   
+    @RenderSection("titleCSS", false)
+</head>
+<body>
+    @RenderBody()
+    <!--添加人员成功结束-->
+    <div class="pop-mask"></div>
+    <script src="@BaseConfig.JsUrl/Node/build/js/jquery-3.1.1.min.js"></script>
+    <script src="@BaseConfig.JsUrl/Node/build/js/backStage/header.js"></script>
+
+
+    @RenderSection("titleJS", false)
+</body>
+</html>

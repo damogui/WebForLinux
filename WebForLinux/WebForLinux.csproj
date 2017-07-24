@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BED8D8ED-E494-4CBB-907C-D18A1244237F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebForLinux</RootNamespace>
+    <AssemblyName>WebForLinux</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BaseConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Node\gulpfile.js" />
+    <Content Include="Node\gulp\config.js" />
+    <Content Include="Node\gulp\task\clean.js" />
+    <Content Include="Node\gulp\task\default.js" />
+    <Content Include="Node\gulp\task\images.js" />
+    <Content Include="Node\gulp\task\less.js" />
+    <Content Include="Node\gulp\task\rev.js" />
+    <Content Include="Node\gulp\task\ugify.js" />
+    <Content Include="Node\gulp\task\watch.js" />
+    <Content Include="Node\gulp\util\handleErrors.js" />
+    <Content Include="Node\index.htm" />
+    <Content Include="Node\read.js" />
+    <Content Include="Node\sm.mp3" />
+    <Content Include="Node\src\dep\echarts.min.js" />
+    <Content Include="Node\src\dep\zip\deflate.js" />
+    <Content Include="Node\src\dep\zip\inflate.js" />
+    <Content Include="Node\src\dep\zip\z-worker.js" />
+    <Content Include="Node\src\dep\zip\zip-ext.js" />
+    <Content Include="Node\src\dep\zip\zip.js" />
+    <Content Include="Node\src\html\backStage\a.html" />
+    <Content Include="Node\src\html\backStage\analysis-cross.html" />
+    <Content Include="Node\src\html\backStage\analysis-period.html" />
+    <Content Include="Node\src\html\backStage\analysis-student-situation.html" />
+    <Content Include="Node\src\html\backStage\analysis-teacher.html" />
+    <Content Include="Node\src\html\backStage\b.html" />
+    <Content Include="Node\src\html\backStage\channel-management.html" />
+    <Content Include="Node\src\html\backStage\class-manage.html" />
+    <Content Include="Node\src\html\backStage\class-management-addAset.html" />
+    <Content Include="Node\src\html\backStage\class-management-addChildClass.html" />
+    <Content Include="Node\src\html\backStage\class-management-addUnit.html" />
+    <Content Include="Node\src\html\backStage\class-management-addWords.html" />
+    <Content Include="Node\src\html\backStage\class-management-aset.html" />
+    <Content Include="Node\src\html\backStage\class-management-asetDetail.html" />
+    <Content Include="Node\src\html\backStage\class-management-childMange.html" />
+    <Content Include="Node\src\html\backStage\class-management-creatBook.html" />
+    <Content Include="Node\src\html\backStage\class-management.html" />
+    <Content Include="Node\src\html\backStage\curriculum-manage.html" />
+    <Content Include="Node\src\html\backStage\edit-personMesg.html" />
+    <Content Include="Node\src\html\backStage\edit-student-mesg.html" />
+    <Content Include="Node\src\html\backStage\editPassword.html" />
+    <Content Include="Node\src\html\backStage\index.html" />
+    <Content Include="Node\src\html\backStage\KPI_detail.html" />
+    <Content Include="Node\src\html\backStage\learning-statistics.html" />
+    <Content Include="Node\src\html\backStage\lesson-statistics.html" />
+    <Content Include="Node\src\html\backStage\lesson-wonderfulMoent.html" />
+    <Content Include="Node\src\html\backStage\login-main.html" />
+    <Content Include="Node\src\html\backStage\login.html" />
+    <Content Include="Node\src\html\backStage\org-management.html" />
+    <Content Include="Node\src\html\backStage\org-seeDetail.html" />
+    <Content Include="Node\src\html\backStage\paper-manage.html" />
+    <Content Include="Node\src\html\backStage\Performance-score.html" />
+    <Content Include="Node\src\html\backStage\person-manage.html" />
+    <Content Include="Node\src\html\backStage\person-mesg.html" />
+    <Content Include="Node\src\html\backStage\report-detail.html" />
+    <Content Include="Node\src\html\backStage\report-list.html" />
+    <Content Include="Node\src\html\backStage\resive-anysis.html" />
+    <Content Include="Node\src\html\backStage\student-coin-incoming.html" />
+    <Content Include="Node\src\html\backStage\student-coins.html" />
+    <Content Include="Node\src\html\backStage\student-detail.html" />
+    <Content Include="Node\src\html\backStage\student-manage.html" />
+    <Content Include="Node\src\html\backStage\teacherPointer.html" />
+    <Content Include="Node\src\html\backStage\this_404.html" />
+    <Content Include="Node\src\html\backStage\unit-fullMarks.html" />
+    <Content Include="Node\src\html\backStage\update.html" />
+    <Content Include="Node\src\img\%24.png" />
+    <Content Include="Node\src\img\%24_1.png" />
+    <Content Include="Node\src\img\%24_2.png" />
+    <Content Include="Node\src\img\100_score.png" />
+    <Content Include="Node\src\img\about-myword.png" />
+    <Content Include="Node\src\img\active-radio - 副本.png" />
+    <Content Include="Node\src\img\active-radio.png" />
+    <Content Include="Node\src\img\active-right.png" />
+    <Content Include="Node\src\img\add-dificult.png" />
+    <Content Include="Node\src\img\add-img.png" />
+    <Content Include="Node\src\img\anchor.png" />
+    <Content Include="Node\src\img\anchorn1.png" />
+    <Content Include="Node\src\img\arrow_fly.png" />
+    <Content Include="Node\src\img\award1.png" />
+    <Content Include="Node\src\img\award2.png" />
+    <Content Include="Node\src\img\award4.png" />
+    <Content Include="Node\src\img\award_colse.png" />
+    <Content Include="Node\src\img\award_teach.png" />
+    <Content Include="Node\src\img\award_teach2.png" />
+    <Content Include="Node\src\img\award_teach3.png" />
+    <Content Include="Node\src\img\award_teach4.png" />
+    <Content Include="Node\src\img\back-del.png" />
+    <Content Include="Node\src\img\baidu.png" />
+    <Content Include="Node\src\img\bar-tab_03.png" />
+    <Content Include="Node\src\img\bar-tab_05.png" />
+    <Content Include="Node\src\img\bar-tab_07.png" />
+    <Content Include="Node\src\img\bar-tab_09.png" />
+    <Content Include="Node\src\img\beautiful1.png" />
+    <Content Include="Node\src\img\best_king.png" />
+    <Content Include="Node\src\img\bg-add.png" />
+    <Content Include="Node\src\img\bg-search.png" />
+    <Content Include="Node\src\img\big-error.png" />
+    <Content Include="Node\src\img\big-ok.png" />
+    <Content Include="Node\src\img\bingo.png" />
+    <Content Include="Node\src\img\blogo.png" />
+    <Content Include="Node\src\img\blogo_city.png" />
+    <Content Include="Node\src\img\book-loop.png" />
+    <Content Include="Node\src\img\bronze_edal.png" />
+    <Content Include="Node\src\img\caram.png" />
+    <Content Include="Node\src\img\caram_box.png" />
+    <Content Include="Node\src\img\cart.png" />
+    <Content Include="Node\src\img\checkbox_partner1.png" />
+    <Content Include="Node\src\img\checkbox_partner2.png" />
+    <Content Include="Node\src\img\checkico.png" />
+    <Content Include="Node\src\img\choose-right.png" />
+    <Content Include="Node\src\img\choose_left.png" />
+    <Content Include="Node\src\img\chose-guide.png" />
+    <Content Include="Node\src\img\city_cant_choose.png" />
+    <Content Include="Node\src\img\city_partner_log.png" />
+    <Content Include="Node\src\img\class-manage.png" />
+    <Content Include="Node\src\img\class-null.jpg" />
+    <Content Include="Node\src\img\class.png" />
+    <Content Include="Node\src\img\clock-class.png" />
+    <Content Include="Node\src\img\clock-clock.png" />
+    <Content Include="Node\src\img\congration.png" />
+    <Content Include="Node\src\img\contact-us.png" />
+    <Content Include="Node\src\img\cry.png" />
+    <Content Include="Node\src\img\default-left.png" />
+    <Content Include="Node\src\img\default-right.png" />
+    <Content Include="Node\src\img\detail_!.png" />
+    <Content Include="Node\src\img\down-arrow.png" />
+    <Content Include="Node\src\img\ear.png" />
+    <Content Include="Node\src\img\echart_data.png" />
+    <Content Include="Node\src\img\echart_incoming.png" />
+    <Content Include="Node\src\img\echart_incoming_1.png" />
+    <Content Include="Node\src\img\echart_student.png" />
+    <Content Include="Node\src\img\echart_student_1.png" />
+    <Content Include="Node\src\img\echart_student_state.png" />
+    <Content Include="Node\src\img\echart_student_state_1.png" />
+    <Content Include="Node\src\img\eg-close.png" />
+    <Content Include="Node\src\img\eg-log.png" />
+    <Content Include="Node\src\img\end-down.png" />
+    <Content Include="Node\src\img\end-left.png" />
+    <Content Include="Node\src\img\error.png" />
+    <Content Include="Node\src\img\exprience-back.png" />
+    <Content Include="Node\src\img\font_family.png" />
+    <Content Include="Node\src\img\fork_baidu.png" />
+    <Content Include="Node\src\img\Fosun.png" />
+    <Content Include="Node\src\img\get-it-img1.png" />
+    <Content Include="Node\src\img\get-it-img2.png" />
+    <Content Include="Node\src\img\get-it-img3.png" />
+    <Content Include="Node\src\img\git_box.png" />
+    <Content Include="Node\src\img\git_loop.png" />
+    <Content Include="Node\src\img\go-back.png" />
+    <Content Include="Node\src\img\gold_medal.png" />
+    <Content Include="Node\src\img\grade-add.png" />
+    <Content Include="Node\src\img\great_back.png" />
+    <Content Include="Node\src\img\great_bottom_hover.png" />
+    <Content Include="Node\src\img\great_down_pc.png" />
+    <Content Include="Node\src\img\great_left_ar.png" />
+    <Content Include="Node\src\img\great_right_ar.png" />
+    <Content Include="Node\src\img\great_smail.png" />
+    <Content Include="Node\src\img\great_smil_boy.png" />
+    <Content Include="Node\src\img\great_student.png" />
+    <Content Include="Node\src\img\great_teach.png" />
+    <Content Include="Node\src\img\groun_three.png" />
+    <Content Include="Node\src\img\group_one.png" />
+    <Content Include="Node\src\img\group_two.png" />
+    <Content Include="Node\src\img\guide-line.png" />
+    <Content Include="Node\src\img\horn.png" />
+    <Content Include="Node\src\img\hover.png" />
+    <Content Include="Node\src\img\html.html" />
+    <Content Include="Node\src\img\icon-add-right.png" />
+    <Content Include="Node\src\img\icon-update-notice.png" />
+    <Content Include="Node\src\img\iconfont-404.png" />
+    <Content Include="Node\src\img\iconfont-fanhui.png" />
+    <Content Include="Node\src\img\icon_award_pan.png" />
+    <Content Include="Node\src\img\icon_award_point.png" />
+    <Content Include="Node\src\img\icon_award_yb.png" />
+    <Content Include="Node\src\img\icon_checkico.png" />
+    <Content Include="Node\src\img\icon_checkico_def.png" />
+    <Content Include="Node\src\img\icon_checkico_sel.png" />
+    <Content Include="Node\src\img\icon_class_big.png" />
+    <Content Include="Node\src\img\icon_class_small.png" />
+    <Content Include="Node\src\img\icon_close_pop.png" />
+    <Content Include="Node\src\img\icon_header_return.png" />
+    <Content Include="Node\src\img\icon_light.png" />
+    <Content Include="Node\src\img\icon_me_big.png" />
+    <Content Include="Node\src\img\icon_me_small.png" />
+    <Content Include="Node\src\img\icon_pause_01.png" />
+    <Content Include="Node\src\img\icon_play_01.png" />
+    <Content Include="Node\src\img\icon_refresh.png" />
+    <Content Include="Node\src\img\icon_shutdown.png" />
+    <Content Include="Node\src\img\icon_soundloud.png" />
+    <Content Include="Node\src\img\icon_test_big.png" />
+    <Content Include="Node\src\img\icon_test_small.png" />
+    <Content Include="Node\src\img\image-close.png" />
+    <Content Include="Node\src\img\img-radio.png" />
+    <Content Include="Node\src\img\img-right.png" />
+    <Content Include="Node\src\img\index-bg.png" />
+    <Content Include="Node\src\img\index-left.png" />
+    <Content Include="Node\src\img\key-selected.png" />
+    <Content Include="Node\src\img\key-unselected.png" />
+    <Content Include="Node\src\img\king.png" />
+    <Content Include="Node\src\img\kkkk.png" />
+    <Content Include="Node\src\img\lcb.png" />
+    <Content Include="Node\src\img\leade-guide-lineS.png" />
+    <Content Include="Node\src\img\left-arrow.png" />
+    <Content Include="Node\src\img\left-cart.png" />
+    <Content Include="Node\src\img\less-nodata.png" />
+    <Content Include="Node\src\img\lesson-watching_dcw.png" />
+    <Content Include="Node\src\img\lesson-watching_gjz.png" />
+    <Content Include="Node\src\img\li-arrow.png" />
+    <Content Include="Node\src\img\live_room.png" />
+    <Content Include="Node\src\img\loading.gif" />
+    <Content Include="Node\src\img\location.png" />
+    <Content Include="Node\src\img\lock_lock.png" />
+    <Content Include="Node\src\img\login-close.png" />
+    <Content Include="Node\src\img\login-login.png" />
+    <Content Include="Node\src\img\login-pass.png" />
+    <Content Include="Node\src\img\login-split.png" />
+    <Content Include="Node\src\img\loop.png" />
+    <Content Include="Node\src\img\lost_money.png" />
+    <Content Include="Node\src\img\luck_king.png" />
+    <Content Include="Node\src\img\me.png" />
+    <Content Include="Node\src\img\mesg.png" />
+    <Content Include="Node\src\img\Mfg-homeLog.png" />
+    <Content Include="Node\src\img\mfg-logo.png" />
+    <Content Include="Node\src\img\mfg-safe.png" />
+    <Content Include="Node\src\img\mfg_address.png" />
+    <Content Include="Node\src\img\mfg_bg.png" />
+    <Content Include="Node\src\img\mfg_email.png" />
+    <Content Include="Node\src\img\mfg_person.png" />
+    <Content Include="Node\src\img\mfg_phnoe.png" />
+    <Content Include="Node\src\img\mfg_word.png" />
+    <Content Include="Node\src\img\Microsoft.png" />
+    <Content Include="Node\src\img\moment-delet.png" />
+    <Content Include="Node\src\img\monent-back.png" />
+    <Content Include="Node\src\img\mouse-unselected.png" />
+    <Content Include="Node\src\img\mouse_selected.png" />
+    <Content Include="Node\src\img\music-bg.png" />
+    <Content Include="Node\src\img\music_select.png" />
+    <Content Include="Node\src\img\mystudent-active.png" />
+    <Content Include="Node\src\img\mystudent.png" />
+    <Content Include="Node\src\img\my_team.png" />
+    <Content Include="Node\src\img\name.png" />
+    <Content Include="Node\src\img\next.png" />
+    <Content Include="Node\src\img\no-class.png" />
+    <Content Include="Node\src\img\no-record-data.png" />
+    <Content Include="Node\src\img\no-record.png" />
+    <Content Include="Node\src\img\no-word.png" />
+    <Content Include="Node\src\img\no-word1.png" />
+    <Content Include="Node\src\img\no_arrow-circle.png" />
+    <Content Include="Node\src\img\NO_LOGO.png" />
+    <Content Include="Node\src\img\NO_LOGO1.png" />
+    <Content Include="Node\src\img\Obrma.png" />
+    <Content Include="Node\src\img\ok-grade.png" />
+    <Content Include="Node\src\img\ok-img.png" />
+    <Content Include="Node\src\img\on_gift.png" />
+    <Content Include="Node\src\img\operation-asynsis.png" />
+    <Content Include="Node\src\img\org-add.png" />
+    <Content Include="Node\src\img\org_partner.png" />
+    <Content Include="Node\src\img\parent-button.png" />
+    <Content Include="Node\src\img\partner-award.png" />
+    <Content Include="Node\src\img\partner-awardB.png" />
+    <Content Include="Node\src\img\partner_man.png" />
+    <Content Include="Node\src\img\partner_tip.png" />
+    <Content Include="Node\src\img\partner_woman.png" />
+    <Content Include="Node\src\img\pc.png" />
+    <Content Include="Node\src\img\per-srudy-see.png" />
+    <Content Include="Node\src\img\perser-center-active.png" />
+    <Content Include="Node\src\img\perser-center.png" />
+    <Content Include="Node\src\img\pic-less.png" />
+    <Content Include="Node\src\img\pingzi.png" />
+    <Content Include="Node\src\img\play-icon1.png" />
+    <Content Include="Node\src\img\pop-img.png" />
+    <Content Include="Node\src\img\pop_close.png" />
+    <Content Include="Node\src\img\pre.png" />
+    <Content Include="Node\src\img\pre_page.png" />
+    <Content Include="Node\src\img\progress_king.png" />
+    <Content Include="Node\src\img\qinghua.png" />
+    <Content Include="Node\src\img\radio-single.png" />
+    <Content Include="Node\src\img\reflash.png" />
+    <Content Include="Node\src\img\regin-up-self.png" />
+    <Content Include="Node\src\img\remebertype.png" />
+    <Content Include="Node\src\img\report.jpg" />
+    <Content Include="Node\src\img\right_disable.ico" />
+    <Content Include="Node\src\img\right_disable.jpg" />
+    <Content Include="Node\src\img\right_disable.png" />
+    <Content Include="Node\src\img\rigin-up.png" />
+    <Content Include="Node\src\img\roate-big.png" />
+    <Content Include="Node\src\img\roate-rotate.png" />
+    <Content Include="Node\src\img\roate.png" />
+    <Content Include="Node\src\img\roate_award1.png" />
+    <Content Include="Node\src\img\roate_award2.png" />
+    <Content Include="Node\src\img\roate_award3.png" />
+    <Content Include="Node\src\img\roate_award4.png" />
+    <Content Include="Node\src\img\roate_award5.png" />
+    <Content Include="Node\src\img\roate_award6.png" />
+    <Content Include="Node\src\img\roate_award7.png" />
+    <Content Include="Node\src\img\roate_award8.png" />
+    <Content Include="Node\src\img\saoyosao_png.png" />
+    <Content Include="Node\src\img\sao_sao.png" />
+    <Content Include="Node\src\img\school.png" />
+    <Content Include="Node\src\img\scode-us.png" />
+    <Content Include="Node\src\img\scode.png" />
+    <Content Include="Node\src\img\search.png" />
+    <Content Include="Node\src\img\seq1.png" />
+    <Content Include="Node\src\img\seq2.png" />
+    <Content Include="Node\src\img\silver_medal.png" />
+    <Content Include="Node\src\img\slid-up.png" />
+    <Content Include="Node\src\img\slide1.png" />
+    <Content Include="Node\src\img\slide2.png" />
+    <Content Include="Node\src\img\slide3.png" />
+    <Content Include="Node\src\img\slides-1.png" />
+    <Content Include="Node\src\img\slogo.png" />
+    <Content Include="Node\src\img\slogo1.png" />
+    <Content Include="Node\src\img\smail.png" />
+    <Content Include="Node\src\img\small-arrow.png" />
+    <Content Include="Node\src\img\small-arrows.png" />
+    <Content Include="Node\src\img\small-pc.png" />
+    <Content Include="Node\src\img\small_org_face.png" />
+    <Content Include="Node\src\img\smile.png" />
+    <Content Include="Node\src\img\sound-play2.gif" />
+    <Content Include="Node\src\img\speed-memory.png" />
+    <Content Include="Node\src\img\star7.png" />
+    <Content Include="Node\src\img\start.png" />
+    <Content Include="Node\src\img\start1.png" />
+    <Content Include="Node\src\img\start2.png" />
+    <Content Include="Node\src\img\start3.png" />
+    <Content Include="Node\src\img\start4.png" />
+    <Content Include="Node\src\img\start5.png" />
+    <Content Include="Node\src\img\start6.png" />
+    <Content Include="Node\src\img\stop.png" />
+    <Content Include="Node\src\img\student-bg.png" />
+    <Content Include="Node\src\img\student-chart-line.png" />
+    <Content Include="Node\src\img\student-chart.png" />
+    <Content Include="Node\src\img\student-evaluation-index.png" />
+    <Content Include="Node\src\img\student-evaluation-index1.png" />
+    <Content Include="Node\src\img\student-icon.png" />
+    <Content Include="Node\src\img\student-log.png" />
+    <Content Include="Node\src\img\student-pop-all-pause.png" />
+    <Content Include="Node\src\img\student-pop-all-pause_01.png" />
+    <Content Include="Node\src\img\student-pop-start.png" />
+    <Content Include="Node\src\img\student-split1.png" />
+    <Content Include="Node\src\img\student-test-end.png" />
+    <Content Include="Node\src\img\student-unit-result-bg.png" />
+    <Content Include="Node\src\img\student-unit-result-bgc.png" />
+    <Content Include="Node\src\img\studey-analysis.png" />
+    <Content Include="Node\src\img\teach-down.png" />
+    <Content Include="Node\src\img\teach1_award.png" />
+    <Content Include="Node\src\img\teach2_award.png" />
+    <Content Include="Node\src\img\teach3_award.png" />
+    <Content Include="Node\src\img\teacher-all-pause_01.png" />
+    <Content Include="Node\src\img\teacher-all-pause_02.png" />
+    <Content Include="Node\src\img\teacher-no-course.png" />
+    <Content Include="Node\src\img\teacher-right-arrow.png" />
+    <Content Include="Node\src\img\teach_A.png" />
+    <Content Include="Node\src\img\teach_Q.png" />
+    <Content Include="Node\src\img\test-center-active.png" />
+    <Content Include="Node\src\img\test-center.png" />
+    <Content Include="Node\src\img\this_404.png" />
+    <Content Include="Node\src\img\time-circle-small.png" />
+    <Content Include="Node\src\img\time-circle.png" />
+    <Content Include="Node\src\img\time-point-small.png" />
+    <Content Include="Node\src\img\time-point.png" />
+    <Content Include="Node\src\img\tlogo.png" />
+    <Content Include="Node\src\img\unit-loop.png" />
+    <Content Include="Node\src\img\user-header.png" />
+    <Content Include="Node\src\img\user-login.png" />
+    <Content Include="Node\src\img\wechat_face.png" />
+    <Content Include="Node\src\img\white-delte.png" />
+    <Content Include="Node\src\img\word-close.png" />
+    <Content Include="Node\src\img\word_king.png" />
+    <Content Include="Node\src\img\zhuanpan.png" />
+    <Content Include="Node\src\img\运营分析-学生开通分析.png" />
+    <Content Include="Node\src\js\backStage\add-partner.js" />
+    <Content Include="Node\src\js\backStage\analysis-cross.js" />
+    <Content Include="Node\src\js\backStage\analysis-student-situation.js" />
+    <Content Include="Node\src\js\backStage\analysis-teacher.js" />
+    <Content Include="Node\src\js\backStage\channel-management.js" />
+    <Content Include="Node\src\js\backStage\class-manage.js" />
+    <Content Include="Node\src\js\backStage\class-management-addChildClass.js" />
+    <Content Include="Node\src\js\backStage\class-management-addUnit.js" />
+    <Content Include="Node\src\js\backStage\class-management-aset.js" />
+    <Content Include="Node\src\js\backStage\class-management-asetDetail.js" />
+    <Content Include="Node\src\js\backStage\class-management-childClassIndex.js" />
+    <Content Include="Node\src\js\backStage\class-management-childMange.js" />
+    <Content Include="Node\src\js\backStage\class-management-creatBook.js" />
+    <Content Include="Node\src\js\backStage\class-management.js" />
+    <Content Include="Node\src\js\backStage\curriculum-manage.js" />
+    <Content Include="Node\src\js\backStage\detail-partner.js" />
+    <Content Include="Node\src\js\backStage\edit-personMesg.js" />
+    <Content Include="Node\src\js\backStage\edit-student-mesg.js" />
+    <Content Include="Node\src\js\backStage\editPassword.js" />
+    <Content Include="Node\src\js\backStage\Enrolment.js" />
+    <Content Include="Node\src\js\backStage\Greatmoment.js" />
+    <Content Include="Node\src\js\backStage\header.js" />
+    <Content Include="Node\src\js\backStage\headers.js" />
+    <Content Include="Node\src\js\backStage\income.js" />
+    <Content Include="Node\src\js\backStage\index.js" />
+    <Content Include="Node\src\js\backStage\init.js" />
+    <Content Include="Node\src\js\backStage\login-main.js" />
+    <Content Include="Node\src\js\backStage\mfg-partner.js" />
+    <Content Include="Node\src\js\backStage\org-management.js" />
+    <Content Include="Node\src\js\backStage\org-managementinside.js" />
+    <Content Include="Node\src\js\backStage\org-managementnew.js" />
+    <Content Include="Node\src\js\backStage\org-seeDetail.js" />
+    <Content Include="Node\src\js\backStage\paper-manage.js" />
+    <Content Include="Node\src\js\backStage\Performance-score.js" />
+    <Content Include="Node\src\js\backStage\person-manage.js" />
+    <Content Include="Node\src\js\backStage\person-mesg.js" />
+    <Content Include="Node\src\js\backStage\report-detail.js" />
+    <Content Include="Node\src\js\backStage\report-list.js" />
+    <Content Include="Node\src\js\backStage\resive-anysis.js" />
+    <Content Include="Node\src\js\backStage\student-coin-incoming.js" />
+    <Content Include="Node\src\js\backStage\student-coins.js" />
+    <Content Include="Node\src\js\backStage\student-detail.js" />
+    <Content Include="Node\src\js\backStage\student-manage.js" />
+    <Content Include="Node\src\js\backStage\Students.js" />
+    <Content Include="Node\src\js\backStage\teacherPointer.js" />
+    <Content Include="Node\src\js\backStage\Teachers.js" />
+    <Content Include="Node\src\js\experience\booklist.js" />
+    <Content Include="Node\src\js\experience\unitlist.js" />
+    <Content Include="Node\src\js\experience\word.js" />
+    <Content Include="Node\src\js\experience\word1.js" />
+    <Content Include="Node\src\js\lib\c.js" />
+    <Content Include="Node\src\js\lib\calendar\calender-plugin.js" />
+    <Content Include="Node\src\js\lib\calendar\calender-plugin.min.js" />
+    <Content Include="Node\src\js\lib\d.js" />
+    <Content Include="Node\src\js\lib\dataDic.js" />
+    <Content Include="Node\src\js\lib\experience\List.js" />
+    <Content Include="Node\src\js\lib\monthcalendar\date.js" />
+    <Content Include="Node\src\js\lib\page\Paginator.js" />
+    <Content Include="Node\src\js\lib\popup\popuptip.js" />
+    <Content Include="Node\src\js\lib\popup\showloadimg.js" />
+    <Content Include="Node\src\js\lib\util.js" />
+    <Content Include="Node\src\LUI\css\tree.css" />
+    <Content Include="Node\src\LUI\img\checkico.png" />
+    <Content Include="Node\src\LUI\img\treeico_op.png" />
+    <Content Include="Node\src\LUI\img\tree_dash.png" />
+    <Content Include="Node\src\LUI\index.html" />
+    <Content Include="Node\src\LUI\jquery-3.1.1.min.js" />
+    <Content Include="Node\src\LUI\jquery.easing.min.js" />
+    <Content Include="Node\src\LUI\jquery.qrcode.js" />
+    <Content Include="Node\src\LUI\jquery.qrcode.min.js" />
+    <Content Include="Node\src\LUI\jquery.tmpl.min.js" />
+    <Content Include="Node\src\LUI\jQueryRotate.2.2.js" />
+    <Content Include="Node\src\LUI\js\checkbox.js" />
+    <Content Include="Node\src\LUI\js\dropdownlist.js" />
+    <Content Include="Node\src\LUI\js\guide.js" />
+    <Content Include="Node\src\LUI\js\jquery-3.1.1.js" />
+    <Content Include="Node\src\LUI\js\lui.js" />
+    <Content Include="Node\src\LUI\js\tree.js" />
+    <Content Include="Node\src\LUI\js\wordspeak - 副本.js" />
+    <Content Include="Node\src\LUI\js\wordspeak.js" />
+    <Content Include="Node\src\LUI\js\wordspeak1.js" />
+    <Content Include="Node\src\LUI\layout_test.html" />
+    <Content Include="Node\src\LUI\tool.js" />
+    <Content Include="Node\src\LUI\tree.css" />
+    <Content Include="Node\src\LUI\Untitled-1.html" />
+    <Content Include="Node\src\LUI\waterbubble.js" />
+    <Content Include="Node\src\LUI\zepto.min.js" />
+    <Content Include="Node\src\SUI-Mobile\css\sm-extend.css" />
+    <Content Include="Node\src\SUI-Mobile\css\sm-extend.min.css" />
+    <Content Include="Node\src\SUI-Mobile\css\sm.css" />
+    <Content Include="Node\src\SUI-Mobile\css\sm.min.css" />
+    <Content Include="Node\src\SUI-Mobile\js\sm-city-picker.js" />
+    <Content Include="Node\src\SUI-Mobile\js\sm-city-picker.min.js" />
+    <Content Include="Node\src\SUI-Mobile\js\sm-extend.js" />
+    <Content Include="Node\src\SUI-Mobile\js\sm-extend.min.js" />
+    <Content Include="Node\src\SUI-Mobile\js\sm.js" />
+    <Content Include="Node\src\SUI-Mobile\js\sm.min.js" />
+    <Content Include="Node\src\SUI-Mobile\js\zepto.min.js" />
+    <Content Include="Node\src\tpl\template-helpers.js" />
+    <Content Include="Node\src\tpl\template.js" />
+    <Content Include="Node\webpack.config.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Node\config.json" />
+    <Content Include="Node\package.json" />
+    <Content Include="Node\src\js\backStage\report-detail.js.bak" />
+    <Content Include="Node\src\js\lib\calendar\calender-plugin.less" />
+    <Content Include="Node\src\js\lib\monthcalendar\date.less" />
+    <Content Include="Node\src\js\lib\page\paging.less" />
+    <Content Include="Node\src\less\backStage\analysis-cross.less" />
+    <Content Include="Node\src\less\backStage\analysis-period.less" />
+    <Content Include="Node\src\less\backStage\analysis-student-situation.less" />
+    <Content Include="Node\src\less\backStage\analysis-teacher.less" />
+    <Content Include="Node\src\less\backStage\channel-management.less" />
+    <Content Include="Node\src\less\backStage\class-manage.less" />
+    <Content Include="Node\src\less\backStage\class-management-addAset.less" />
+    <Content Include="Node\src\less\backStage\class-management-addChildClass.less" />
+    <Content Include="Node\src\less\backStage\class-management-addUnit.less" />
+    <Content Include="Node\src\less\backStage\class-management-addWords.less" />
+    <Content Include="Node\src\less\backStage\class-management-aset.less" />
+    <Content Include="Node\src\less\backStage\class-management-asetDetail.less" />
+    <Content Include="Node\src\less\backStage\class-management-childMange.less" />
+    <Content Include="Node\src\less\backStage\class-management-creatBook.less" />
+    <Content Include="Node\src\less\backStage\class-management.less" />
+    <Content Include="Node\src\less\backStage\curriculum-manage.less" />
+    <Content Include="Node\src\less\backStage\edit-personMesg.less" />
+    <Content Include="Node\src\less\backStage\edit-student-mesg.less" />
+    <Content Include="Node\src\less\backStage\editPassword.less" />
+    <Content Include="Node\src\less\backStage\Enrolment.less" />
+    <Content Include="Node\src\less\backStage\Greatmoment.less" />
+    <Content Include="Node\src\less\backStage\Income.less" />
+    <Content Include="Node\src\less\backStage\init.less" />
+    <Content Include="Node\src\less\backStage\KPI_detail.less" />
+    <Content Include="Node\src\less\backStage\learning-statistics.less" />
+    <Content Include="Node\src\less\backStage\lesson-statistics.less" />
+    <Content Include="Node\src\less\backStage\lesson-wonderfulMoent.less" />
+    <Content Include="Node\src\less\backStage\org-management.less" />
+    <Content Include="Node\src\less\backStage\org-seeDetail.less" />
+    <Content Include="Node\src\less\backStage\paper-manage.less" />
+    <Content Include="Node\src\less\backStage\Performance-score - 复制.less" />
+    <Content Include="Node\src\less\backStage\Performance-score.less" />
+    <Content Include="Node\src\less\backStage\person-manage.less" />
+    <Content Include="Node\src\less\backStage\person-mesg.less" />
+    <Content Include="Node\src\less\backStage\report-detail.less" />
+    <Content Include="Node\src\less\backStage\report-list.less" />
+    <Content Include="Node\src\less\backStage\resive-anysis.less" />
+    <Content Include="Node\src\less\backStage\student-coin-incoming.less" />
+    <Content Include="Node\src\less\backStage\student-coins.less" />
+    <Content Include="Node\src\less\backStage\student-detail.less" />
+    <Content Include="Node\src\less\backStage\student-manage.less" />
+    <Content Include="Node\src\less\backStage\Students.less" />
+    <Content Include="Node\src\less\backStage\teacherPointer.less" />
+    <Content Include="Node\src\less\backStage\Teachers.less" />
+    <Content Include="Node\src\less\backStage\unit-fullMarks.less" />
+    <Content Include="Node\src\less\backStage\Widevision.less" />
+    <Content Include="Node\src\less\comm\egComm.less" />
+    <Content Include="Node\src\less\experience\experience.less" />
+    <Content Include="Node\src\less\experience\experience1.less" />
+    <Content Include="Node\src\LUI\.vscode\launch.json" />
+    <Content Include="Node\src\LUI\.vscode\tasks.json" />
+    <Content Include="Node\src\LUI\css\com.less" />
+    <Content Include="Node\src\LUI\less\com.less" />
+    <Content Include="Node\src\LUI\less\tree.less" />
+    <Content Include="Node\src\tpl\OrgManage\awardList.tpl" />
+    <Content Include="Node\src\tpl\OrgManage\OrgDetail.tpl" />
+    <Content Include="Node\src\tpl\OrgManage\OrgManageList.tpl" />
+    <Content Include="Node\src\tpl\OrgManage\OrgManageListInside.tpl" />
+    <Content Include="Node\src\tpl\OrgManage\OrgManageListNew.tpl" />
+    <Content Include="Node\src\tpl\OrgManage\ResiveAnysis.tpl" />
+    <Content Include="Node\src\tpl\Parent\ContatUs.tpl" />
+    <Content Include="Node\src\tpl\Parent\CourseManage.tpl" />
+    <Content Include="Node\src\tpl\Parent\SpleMoment.tpl" />
+    <Content Include="Node\src\tpl\Parent\StuCourseDetail.tpl" />
+    <Content Include="Node\src\tpl\Parent\StuCourseList.tpl" />
+    <Content Include="Node\src\tpl\Parent\StuCourseNameList.tpl" />
+    <Content Include="Node\src\tpl\PartnerManage\PartnerList.tpl" />
+    <Content Include="Node\src\tpl\PartnerManage\PartnerList2.tpl" />
+    <Content Include="Node\src\tpl\PartnerManage\PatnerDetails.tpl" />
+    <Content Include="Node\src\tpl\PartnerManage\PatnerDetails2.tpl" />
+    <Content Include="Node\src\tpl\PartnerManage\PatnerValueList.tpl" />
+    <Content Include="Node\src\tpl\PersonManage\PersonDetail.tpl" />
+    <Content Include="Node\src\tpl\PersonManage\PersonEdite.tpl" />
+    <Content Include="Node\src\tpl\PersonManage\PersonManageList.tpl" />
+    <Content Include="Node\src\tpl\StudentManage\StuClassList.tpl" />
+    <Content Include="Node\src\tpl\StudentManage\StudentManageList.tpl" />
+    <Content Include="Node\src\tpl\StudentManage\StuDetail.tpl" />
+    <Content Include="Node\src\tpl\StudentManage\StuDetail2.tpl" />
+    <Content Include="Node\src\tpl\StudentManage\StuEdition.tpl" />
+    <Content Include="Node\src\tpl\student\cj-all.tpl" />
+    <Content Include="Node\src\tpl\student\cj-left.tpl" />
+    <Content Include="Node\src\tpl\student\cj-right.tpl" />
+    <Content Include="Node\src\tpl\student\cj1-left.tpl" />
+    <Content Include="Node\src\tpl\student\cj2-left.tpl" />
+    <Content Include="Node\src\tpl\student\PK.tpl" />
+    <Content Include="Node\src\tpl\student\PK1.tpl" />
+    <Content Include="Node\src\tpl\student\PK1Data.tpl" />
+    <Content Include="Node\src\tpl\student\PK2.tpl" />
+    <Content Include="Node\src\tpl\student\PK2Data.tpl" />
+    <Content Include="Node\src\tpl\student\PKData.tpl" />
+    <Content Include="Node\src\tpl\student\rankInfoLeft.tpl" />
+    <Content Include="Node\src\tpl\student\rankInfoNav.tpl" />
+    <Content Include="Node\src\tpl\student\word0.tpl" />
+    <Content Include="Node\src\tpl\student\word1.tpl" />
+    <Content Include="Node\src\tpl\student\word2.tpl" />
+    <Content Include="Node\src\tpl\student\word3.tpl" />
+    <Content Include="Node\src\tpl\student\wordlearn.tpl" />
+    <Content Include="Node\Yuanti SC Regular.TTF" />
+    <Content Include="Node\Yuanti-SC-Regular-Teacher.ttf" />
+    <Content Include="Node\Yuanti-SC-Regular_teacher.ttf" />
+    <None Include="Properties\PublishProfiles\web.config.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Node\src\tpl\ChannelManage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27985</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27985/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
